@@ -1,7 +1,7 @@
 package tests.demoqa;
 
 import com.github.javafaker.Faker;
-import demoqa.TextBox;
+import pages.demoqa.TextBox;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
