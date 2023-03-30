@@ -17,7 +17,7 @@ public class SliderTest extends TestBase {
     @Test
     public void sliderTest() {
         sliderPage = new SliderPage(driver);
-        sliderPage.moveSlider("37");
+        sliderPage.moveSliderWithFor("37");
         Assert.assertEquals(sliderPage.getAttribute(), "37");
         Assert.assertEquals(sliderPage.getSliderValue(), "37");
     }
