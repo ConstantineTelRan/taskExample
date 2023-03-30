@@ -51,4 +51,16 @@ public class SliderPage {
 
     }
 
+    public void moveSliderWithFor(String value) {
+        int val = Integer.parseInt(value);
+        Actions actions = new Actions(driver);
+        actions.dragAndDropBy(slider, -500, 0).build().perform();
+        String valueNow;
+
+        for(int i = 0; i<val; i++) {
+            actions.sendKeys(Keys.ARROW_RIGHT).perform();
+        }
+
+    }
+
 }
