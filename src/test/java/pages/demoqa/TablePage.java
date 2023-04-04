@@ -7,6 +7,9 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 public class TablePage {
     WebDriver driver;
@@ -94,5 +97,19 @@ public class TablePage {
         return rows;
     }
 
+
+    public void getTableDataStream() {
+        List<WebElement> data = driver.findElements(By.xpath("//div[@role='rowgroup']"));
+        List<WebElement> sortData = new ArrayList<>();
+        List<WebElement> textData = new ArrayList<>();
+        List<Map<String, String>> rows = new ArrayList<>();
+        data.stream()
+                .filter(d -> !d.getText().contains("  "))
+                .forEach(sortData::add);
+
+        List<String> cell = new ArrayList<>();
+        Map<String, String> dataCell = new HashMap<>();
+
+    }
 
 }

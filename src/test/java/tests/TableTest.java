@@ -29,9 +29,10 @@ public class TableTest extends TestBase {
     @Test
     public void tableTest() {
         tablePage = new TablePage(driver);
+        tablePage.getTableDataStream();
         List<Map<String, String>> data = tablePage.getTableData();
-        System.out.println(data);
-        System.out.println(data.get(1).get("Age"));
+//        System.out.println(data);
+//        System.out.println(data.get(1).get("Age"));
     }
 
     @Test
