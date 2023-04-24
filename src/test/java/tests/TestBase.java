@@ -21,11 +21,11 @@ public class TestBase {
     @BeforeMethod
     public void setUp() {
 //        driver = new ChromeDriver();
-//        driver = new FirefoxDriver();
+        driver = new FirefoxDriver();
 //        driver = new SafariDriver();
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--remote-allow-origins=*");
-        driver = new ChromeDriver(options);
+//        ChromeOptions options = new ChromeOptions();
+//        options.addArguments("--remote-allow-origins=*");
+//        driver = new ChromeDriver(options);
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 //        driver.get(urlGlobalSqa);
