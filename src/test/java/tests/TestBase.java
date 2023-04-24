@@ -21,7 +21,7 @@ public class TestBase {
     @BeforeMethod
     public void setUp() {
 //        driver = new ChromeDriver();
-        driver = new FirefoxDriver();
+//        driver = new FirefoxDriver();
 //        driver = new SafariDriver();
         ChromeOptions options = new ChromeOptions();
         options.addArguments("headless");
