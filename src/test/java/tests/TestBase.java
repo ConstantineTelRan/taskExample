@@ -24,8 +24,8 @@ public class TestBase {
 //        driver = new FirefoxDriver();
 //        driver = new SafariDriver();
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("headless");
-        options.addArguments("disable-gpu");
+//        options.addArguments("headless");
+//        options.addArguments("disable-gpu");
         options.addArguments("--remote-allow-origins=*");
         driver = new ChromeDriver(options);
         driver.manage().window().maximize();
