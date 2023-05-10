@@ -1,6 +1,7 @@
 package tests;
 
 import com.github.javafaker.Faker;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -21,14 +22,14 @@ public class TestBase {
     @BeforeMethod
     public void setUp() {
 //        driver = new ChromeDriver();
-        driver = new FirefoxDriver();
+//        driver = new FirefoxDriver();
 //        driver = new SafariDriver();
-//        ChromeOptions options = new ChromeOptions();
-//        options.addArguments("headless");
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("headless");
 //        options.addArguments("disable-gpu");
-//        options.addArguments("--remote-allow-origins=*");
-//        driver = new ChromeDriver(options);
-        driver.manage().window().maximize();
+        options.addArguments("--remote-allow-origins=*");
+        driver = new ChromeDriver(options);
+        driver.manage().window().setSize(new Dimension(1920,1080));
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 //        driver.get(urlGlobalSqa);
     }
