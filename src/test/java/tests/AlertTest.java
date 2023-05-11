@@ -2,6 +2,7 @@ package tests;
 
 import com.github.javafaker.Faker;
 import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.globalsqaBank.CustomersListPage;
 import pages.globalsqaBank.LoginPage;
@@ -19,6 +20,11 @@ public class AlertTest extends TestBase {
     String postCode = faker.address().zipCode();
 
     String fullName = firstName + " " + lastName;
+
+    @BeforeMethod
+    public void openUrl() {
+        driver.get("https://www.globalsqa.com/angularJs-protractor/BankingProject/#/login");
+    }
 
     @Test
     public void addNewCustomerTest() throws InterruptedException {
