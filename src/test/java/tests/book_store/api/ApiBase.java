@@ -11,8 +11,11 @@ import static io.restassured.RestAssured.given;
 public class ApiBase {
     protected Faker faker = new Faker();
     private final String BASE_URL = "https://demoqa.com";
-    private final String API_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6ImFkbWluMjIiLCJwYXNzd29yZCI6IlF3ZXJ0eUAxMjM0NSIsImlhdCI6MTY4NDE0NTA3MH0.KVrfbbc_4ESM84pTNYTa5Fl7adKPWe1mRU55GX_-zJI";
+    private final String API_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6ImFkbWluMjIiLCJwYXNzd29yZCI6IlF3ZXJ0eUAxMjM0NSIsImlhdCI6MTY4NDg0MTYwNn0.L6jq9ZujMkTGW4vymke6rCo0BTkwpSZCZjKh3Na1l_A";
     protected final String  AUTHORIZED_END_POINT = "/Account/v1/Authorized";
+    protected final String GENERATE_TOKEN_END_POINT = "/Account/v1/GenerateToken";
+
+//    private String apiKey = getToken();
 
     RequestSpecification spec = new RequestSpecBuilder()
             .setBaseUri(BASE_URL)
@@ -32,5 +35,18 @@ public class ApiBase {
         resp.then().statusCode(statusCode);
         return resp;
     }
+
+//    public String getToken(){
+//        LoginViewModelFactory loginViewModelFactory = new LoginViewModelFactory();
+//        LoginViewDto loginViewDto = loginViewModelFactory.getObject();
+//        TokenViewModel tokenViewModel = given()
+//                .body(loginViewDto)
+//                .post(GENERATE_TOKEN_END_POINT)
+//                .then().extract().response().as(TokenViewModel.class);
+//
+//        return tokenViewModel.getToken();
+//    }
+
+
 
 }
