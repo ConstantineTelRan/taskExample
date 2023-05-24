@@ -29,6 +29,10 @@ public class TextBox {
     @FindBy(xpath = "//button[@id=\"submit\"]")
     private WebElement saveButton;
 
+    public WebElement getSaveButton() {
+        return saveButton;
+    }
+
     @FindBy(xpath = "//div[@id=\"output\"]//div")
     private WebElement infoField;
 
