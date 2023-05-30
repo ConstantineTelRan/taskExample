@@ -56,4 +56,9 @@ public class TextBox {
         return driver.findElement(By.xpath(String.format("//p[@id='%s']", idName))).getText();
     }
 
+    public WebElement getElement(String idName) {
+        return driver.findElement(By.xpath(String.format("//p[@id='%s']", idName)));
+
+    }
+
 }
