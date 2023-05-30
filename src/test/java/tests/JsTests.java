@@ -3,6 +3,7 @@ package tests;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.demoqa.TablePage;
 import pages.demoqa.TextBox;
@@ -28,6 +29,9 @@ public class JsTests extends TestBase{
         js.executeScript("document.getElementById('currentAddress').value='Current Address';");
         js.executeScript("document.getElementById('permanentAddress').value='Permanent Address';");
         js.executeScript("arguments[0].click();", textBox.getSaveButton());
+        String actualName = js.executeScript("return arguments[0].innerText;", textBox.getElement("name")).toString();
+        Assert.assertEquals(actualName, "Name:Victor");
+
 //        js.executeScript("document.getElementById('submit').click();");
         System.out.println("ieieiie");
 
