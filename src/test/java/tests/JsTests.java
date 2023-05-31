@@ -1,8 +1,11 @@
 package tests;
 
+import org.checkerframework.checker.units.qual.K;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.demoqa.TablePage;
@@ -106,10 +109,27 @@ public class JsTests extends TestBase{
     public void check() {
         driver.get("https://demoqa.com/checkbox");
         textBox = new TextBox(driver);
+
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("document.getElementById('tree-node-home').checked=true;");
 
         js.executeScript("document.getElementById('tree-node-home').checked=false;");
+        System.out.println("jsjsjs");
+    }
+
+    @Test
+    public void scaleBrowser() {
+        driver.get("https://demoqa.com/text-box");
+
+//        Actions actions = new Actions(driver);
+//        actions.keyDown(Keys.CONTROL)
+//                .sendKeys(Keys.ADD).keyUp(Keys.CONTROL).perform();
+
+
+
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("document.body.style.zoom='50%'");
+
         System.out.println("jsjsjs");
     }
 
