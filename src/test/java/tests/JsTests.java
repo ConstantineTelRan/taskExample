@@ -3,6 +3,7 @@ package tests;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.demoqa.TextBox;
@@ -49,6 +50,79 @@ public class JsTests extends TestBase {
 
         System.out.println("jdjdjjjd");
     }
+
+    @Test
+    public void scaleBrowser() {
+        driver.get("https://demoqa.com/text-box");
+//        Actions actions = new Actions(driver);
+//        actions.keyDown(Keys.COMMAND)
+//                .sendKeys("-").keyUp(Keys.COMMAND).perform();
+//        actions.keyDown(Keys.COMMAND)
+//                .sendKeys("-").keyUp(Keys.COMMAND).perform();
+
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("document.body.style.zoom='50%'");
+        js.executeScript("document.body.style.zoom='150%'");
+
+        System.out.println("jdjdjdjd");
+    }
+
+    @Test
+    public void getPageText() {
+        driver.get("https://en.wikipedia.org/wiki/Main_Page");
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        String pageText = js.executeScript("return document.documentElement.innerText;").toString();
+        System.out.println(pageText);
+        Assert.assertTrue(pageText.contains("Welcome to Wikipedia"));
+        Assert.assertTrue(pageText.contains("a continuous spectrum of colours, it is traditionally assigned a"));
+    }
+
+    @Test
+    public void getTitle() {
+        driver.get("https://en.wikipedia.org/wiki/Main_Page");
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        String title = js.executeScript("return document.title").toString();
+        Assert.assertEquals(title, "Wikipedia, the free encyclopedia");
+        System.out.println(title);
+    }
+
+    @Test
+    public void getDomain() {
+        driver.get("https://demoqa.com/text-box");
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        String domain = js.executeScript("return document.domain").toString();
+        Assert.assertEquals(domain, "demoqa.com");
+        System.out.println(domain);
+
+    }
+
+    @Test
+    public void getURL() {
+        driver.get("https://demoqa.com/text-box");
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        String url = js.executeScript("return document.URL").toString();
+        System.out.println(url);
+        Assert.assertEquals(url, "https://demoqa.com/text-box");
+    }
+
+    @Test
+    public void nav() {
+        driver.get("https://demoqa.com/text-box");
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.location = 'https://en.wikipedia.org/wiki/Main_Page'");
+        System.out.println("kjdksksk");
+    }
+
+//    @Test
+//    public void checkbox() {
+//        driver.get("https://demoqa.com/checkbox");
+//        JavascriptExecutor js = (JavascriptExecutor) driver;
+//        js.executeScript("document.getElementById('tree-node-home').checked=true");
+//        js.executeScript("document.getElementById('tree-node-home').checked=false");
+//        System.out.println();
+//
+//    }
+//    TODO разобраться с чекбоксами
 
 
 }
