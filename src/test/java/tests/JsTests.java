@@ -113,16 +113,49 @@ public class JsTests extends TestBase {
         System.out.println("kjdksksk");
     }
 
-//    @Test
-//    public void checkbox() {
-//        driver.get("https://demoqa.com/checkbox");
-//        JavascriptExecutor js = (JavascriptExecutor) driver;
-//        js.executeScript("document.getElementById('tree-node-home').checked=true");
-//        js.executeScript("document.getElementById('tree-node-home').checked=false");
-//        System.out.println();
-//
-//    }
-//    TODO разобраться с чекбоксами
+    @Test
+    public void checkbox() {
+        driver.get("https://demoqa.com/automation-practice-form");
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("document.getElementById('hobbies-checkbox-1').checked=true");
+        js.executeScript("document.getElementById('hobbies-checkbox-1').checked=false");
+        System.out.println();
+
+    }
+
+    @Test
+    public void checkbox2() {
+        driver.get("https://demoqa.com/checkbox");
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("document.getElementById('tree-node-home').click()");
+        js.executeScript("document.getElementById('tree-node-home').click()");
+        System.out.println();
+    }
+
+    @Test
+    public void checkbox3() {
+        driver.get("https://demoqa.com/checkbox");
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        WebElement element = driver.findElement(By.xpath("//input[@id=\"tree-node-home\"]"));
+        js.executeScript("arguments[0].click", element);
+        js.executeScript("arguments[0].click", element);
+        System.out.println();
+    }
+
+
+    @Test
+    public void dropDown() {
+        driver.get("https://the-internet.herokuapp.com/dropdown");
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        WebElement dropdownElement = driver.findElement(By.xpath("//select[@id='dropdown']"));
+
+        String selectOptionScript = "arguments[0].selectedIndex = INDEX; arguments[0].dispatchEvent(new Event('change'));";
+        int optionIndex = 1; // Индекс выбранного элемента (нумерация начинается с 0)
+
+        js.executeScript(selectOptionScript.replace("INDEX", String.valueOf(optionIndex)), dropdownElement);
+
+        System.out.println("kdkdkd");
+    }
 
 
 }
