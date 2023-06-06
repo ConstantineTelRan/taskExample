@@ -1,6 +1,7 @@
 package pages.demoqa;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -26,7 +27,7 @@ public class TextBox {
     private WebElement currentAddressInput;
     @FindBy(xpath = "//textarea[@id=\"permanentAddress\"]")
     private WebElement permanentAddressInput;
-    @FindBy(xpath = "//button[@id=\"submit\"]")
+    @FindBy(xpath = "//button[@id='submit']")
     private WebElement saveButton;
 
     @FindBy(xpath = "//div[@id=\"output\"]//div")
@@ -41,7 +42,10 @@ public class TextBox {
         currentAddressInput.sendKeys(currentAddress);
         permanentAddressInput.clear();
         permanentAddressInput.sendKeys(permanentAddress);
-        saveButton.click();
+
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("document.getElementById('submit').click()");
+
     }
 
     public void waitText() {
