@@ -20,7 +20,7 @@ public class TextBox {
     }
 
     @FindBy(xpath = "//input[@id='userName']")
-    private WebElement nameInput;
+    public WebElement nameInput;
     @FindBy(xpath = "//input[@id=\"userEmail\"]")
     private WebElement emailInput;
     @FindBy(xpath = "//textarea[@id=\"currentAddress\"]")
@@ -29,7 +29,6 @@ public class TextBox {
     private WebElement permanentAddressInput;
     @FindBy(xpath = "//button[@id='submit']")
     private WebElement saveButton;
-
     @FindBy(xpath = "//div[@id=\"output\"]//div")
     private WebElement infoField;
 

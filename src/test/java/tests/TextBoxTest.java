@@ -16,6 +16,8 @@ public class TextBoxTest extends TestBase {
     String currentAddress = faker.address().fullAddress();
     String permanentAddress = faker.address().fullAddress();
 
+
+
     String url = "https://demoqa.com/text-box";
     TextBox textBox;
 
@@ -34,7 +36,6 @@ public class TextBoxTest extends TestBase {
 
 //        Assert.assertEquals(textBox.getName(), "Name:" + name);
 
-        Assert.assertTrue(textBox.getTextFromInfoField("name").contains("jkdjdjd"));
         Assert.assertEquals(textBox.getTextFromInfoField("name"), "Name:" + name);
         Assert.assertEquals(textBox.getTextFromInfoField("email"), "Email:" + email);
         Assert.assertEquals(textBox.getTextFromInfoField("currentAddress"),
